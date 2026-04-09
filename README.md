@@ -1,7 +1,11 @@
 Faqat `CREATE TABLE`, `INSERT INTO` va `UPDATE` ga asoslangan 20 ta masala:
 
 ### Namuna uchun:
-```
+# Products SQL
+
+## Jadval yaratish
+
+```sql
 CREATE TABLE products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -9,7 +13,11 @@ CREATE TABLE products (
     product_count INTEGER DEFAULT 0,
     price INTEGER
 );
+```
 
+## Ma'lumot qo'shish
+
+```sql
 INSERT INTO products (name, company, product_count, price)
 VALUES
     ('iPhone 13', 'Apple', 3, 76000),
@@ -17,15 +25,44 @@ VALUES
     ('Galaxy S21', 'Samsung', 2, 56000),
     ('Galaxy S20', 'Samsung', 1, 41000),
     ('P40 Pro', 'Huawei', 5, 36000);
+```
 
+## Ma'lumot yangilash
+
+### Barcha mahsulotlar narxini 3000 ga oshirish
+
+```sql
 UPDATE products
 SET price = price + 3000;
+```
 
+### Samsung nomini yangilash
+
+```sql
 UPDATE products
 SET company = 'Samsung Inc.'
 WHERE company = 'Samsung';
-
 ```
+
+## Jadval tuzilmasi
+
+| Ustun | Turi | Izoh |
+|-------|------|------|
+| id | INTEGER | Primary key, avtomatik |
+| name | TEXT | Mahsulot nomi, majburiy |
+| company | TEXT | Kompaniya nomi, majburiy |
+| product_count | INTEGER | Mahsulot soni, default 0 |
+| price | INTEGER | Narxi |
+
+## Natija
+
+| id | name | company | product_count | price |
+|----|------|---------|---------------|-------|
+| 1 | iPhone 13 | Apple | 3 | 79000 |
+| 2 | iPhone 12 | Apple | 2 | 54000 |
+| 3 | Galaxy S21 | Samsung Inc. | 2 | 59000 |
+| 4 | Galaxy S20 | Samsung Inc. | 1 | 44000 |
+| 5 | P40 Pro | Huawei | 5 | 39000 |
 ---
 
 **1.** `students` jadvali yarating (`id`, `name`, `age`, `grade`). 3 ta o'quvchi qo'shing. Keyin barcha o'quvchilarning `grade` ini 5 ga yangilang.
